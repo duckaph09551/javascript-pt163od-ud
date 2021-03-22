@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<style>
+    #choi {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        margin: 0px auto;
+        background: linear-gradient(45deg, #ec9696, transparent);
+    }
+    
+    button {
+        background: linear-gradient(57deg, #f0ff08, transparent);
+        padding: 9px;
+        color: red;
+        border-radius: 7px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div id="choi">
+        <div class="khoi">
+            <p style="text-align:center;">GAME ĐOÁN SỐ</p>
+            <button onclick="choi()">Nhấn vào đây để chơi</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function choi() {
+        while (true) {
+            var so_bi_mat = Math.round(Math.random() * 100);
+            var soNhap = prompt("Bạn đoán sinh ra số mấy từ 0 đến 100 : ");
+            if (Number(soNhap) == so_bi_mat) {
+                alert("Bạn đoán đúng rồi : " + so_bi_mat);
+                break;
+            } else if (Number(soNhap) < so_bi_mat) {
+                alert("Số bí mật lớn hơn số của bạn");
+                break;
+            } else {
+                alert("số bí mật nhỏ hơn số của bạn");
+                break;
+            }
+        }
+    }
+</script>
+
+</html>

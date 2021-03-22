@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Viết hàm nhận vào 2 mảng a, b. Return về 1 mảng mới chứa các giá trị chỉ xuất hiện 1 trong 2 mảng. -->
+    <script>
+        const handle = (array1, array2) => {
+            const result = []
+            array1.forEach((item) => {
+                if (!array2.includes(item)) {
+                    result.push(item)
+                }
+            })
+            array2.forEach((item) => {
+                if (!array1.includes(item)) {
+                    result.push(item)
+                }
+            })
+            return result
+        }
+    </script>
+</body>
+
+</html>

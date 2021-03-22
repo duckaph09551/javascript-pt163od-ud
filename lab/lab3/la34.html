@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./src/lab34.css" />
+    <!-- <script type="text/javascript" src="./src/lab34.js"></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>MÁY TÍNH</h1>
+    <button onclick="toan_hang(7)">7</button>
+    <button onclick="toan_hang(8)">8</button>
+    <button onclick="toan_hang(9)">9</button>
+    <button onclick="toan_tu('+')">+</button>
+    <br />
+    <button onclick="toan_hang(4)">4</button>
+    <button onclick="toan_hang(5)">5</button>
+    <button onclick="toan_hang(6)">6</button>
+    <button onclick="toan_tu('-')">-</button>
+    <br />
+    <button onclick="toan_hang(1)">1</button>
+    <button onclick="toan_hang(2)">2</button>
+    <button onclick="toan_hang(3)">3</button>
+    <button onclick="toan_tu('x')">x</button>
+    <br />
+    <button onclick="toan_hang(0)">0</button>
+    <button onclick="lam_lai()">C</button>
+    <button onclick="thuc_hien()">=</button>
+    <button onclick="toan_tu(':')">:</button>
+    <br />
+</body>
+
+<script>
+    let a = null,
+        b = null,
+        o = null;
+
+    function lam_lai() {
+        a = null;
+        b = null;
+        o = null;
+    }
+
+    function toan_tu(x) {
+        o = x;
+    }
+
+    function toan_hang(x) {
+        if (a == null) {
+            a = x;
+        } else {
+            b = x;
+        }
+    }
+
+    function thuc_hien() {
+        switch (o) {
+            case "+":
+                var c = a + b;
+                alert("Tổng : " + c);
+                break;
+            case "-":
+                var c = a - b;
+                alert("Hiệu : " + c);
+                break;
+            case "x":
+                var c = a * b;
+                alert("Tích : " + c);
+                break;
+            case ":":
+                var c = a / b;
+                alert("Thương : " + c);
+                break;
+            default:
+                alert(o + "Không phải toán tử");
+        }
+        lam_lai();
+    }
+</script>
+
+</html>

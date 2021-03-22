@@ -1,0 +1,61 @@
+Viết hàm kiểm tra trong mảng các số nguyên có tồn tại giá trị chẵn nhỏ hơn 2004 hay không
+
+Viết hàm sắp xếp mảng 1 chiều các số thực tăng dần
+
+Viết hàm tính tổng các phần tử trong mảng
+
+Viết hàm nhận vào 2 mảng a, b. Return về 1 mảng mới chứa các giá trị chỉ xuất hiện 1 trong 2 mảng.
+
+Viết hàm nhận vào 1 string và trả về một Capitalize string. Ví dụ: 'du thanh duoc' -> 'Du Thanh Duoc'
+
+Viết hàm nhận vào 1 string và trả về một reverse string. Ví dụ: 'duoc' -> 'coud'
+
+Viết hàm kiểm tra nhận vào 2 chuỗi và kiểm tra có phải là reverse string của nhau hay không
+
+Viết hàm tìm chữ lặp lại nhiều nhất trong đoạn string.
+
+Viết hàm thay thế những chữ không muốn trong 1 đoạn. Ví dụ replace('du thanh duoc', ['duoc', 'thanh'], 'hello') thì return về du hello hello
+
+Viết hàm tính tổng tiền lương, nếu object rổng thì tổng là 0
+
+const input = {
+  An: 100,
+  My: 200,
+  Nga: 300,
+  Huy: 150
+}
+const output = 750
+Viết hàm trả về 1 mảng sắp xếp danh sách tăng dần theo chỉ số như name, price. Ví dụ handle(input, 'name')
+
+const input = [
+  {
+    name: 'Tivi',
+    price: 500
+  },
+  {
+    name: 'Dien thoai',
+    price: 100
+  },
+  {
+    name: 'Quan ao',
+    price: 80
+  }
+]
+Viết lại bài trên mà không mutate input
+
+Viết hàm trả về 1 mảng mới chứa những bất động sản có giá trên 100
+
+const input = [
+  {
+    name: 'Khu 1',
+    price: 500
+  },
+  {
+    name: 'Khu 2',
+    price: 100
+  },
+  {
+    name: 'Khu 3',
+    price: 80
+  }
+]

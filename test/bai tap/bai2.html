@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Viết hàm kiểm tra trong mảng các số nguyên có tồn tại giá trị chẵn nhỏ hơn 2004 hay không
+        const findMax = (array) => {
+            for (let i = 0; i < array.lenght; i++) {
+                if (array[i] % 2 === 0 && array[i] < 2004) {
+                    return true;
+                }
+            }
+            return false;
+            findMax([10000, 2025, 2004, 4000])
+        }
+    </script>
+</body>
+
+</html>
