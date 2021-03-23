@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = prompt("Toán hạng a: ");
+        let kq1 = +a;
+        let b = prompt("Toán hạng b: ");
+        let kq2 = +b;
+        let o = prompt("Toán tử:  ");
+
+        switch (o) {
+            case "+":
+                alert("Tổng: " + (kq1 + kq2));
+                break;
+            case "-":
+                alert("Hiệu: " + (kq1 - kq2));
+                break;
+            case "*":
+                alert("Tích: " + kq1 * kq2);
+                break;
+            case "/":
+                alert("Thương: " + kq1 / kq2);
+                break;
+            default:
+                alert(o + "Không phải là toán tử");
+                break;
+        }
+    </script>
+</body>
+
+</html>

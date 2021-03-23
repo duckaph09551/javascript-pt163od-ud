@@ -10,27 +10,62 @@
 
 <body>
     <script>
-        var a = prompt("Toán hạng a: ");
-        var kq1 = parseInt(a);
-        var b = prompt("Toán hạng b: ");
-        var kq2 = parseInt(b);
+        function nhapSo() {
+            let x;
+            while (true) {
+                x = prompt("Nhap vao mot so");
+                if (isNaN(x) == false) {
+                    break;
+                }
+            }
+            return x;
+        }
+        let a = nhapSo();
+        var kq1 = (+a);
+        var b = nhapSo();
+        var kq2 = (+b);
         var o = prompt("Toán tử:  ");
         switch (o) {
             case "+":
-                alert("Tổng: " + (kq1 + kq2));
+                alert("Tổng: " + cong(kq1, kq2));
                 break;
             case "-":
-                alert("Hiệu: " + (kq1 - kq2));
+                alert("Hiệu: " + tru(kq1, kq2));
                 break;
             case "*":
-                alert("Tích: " + kq1 * kq2);
+                alert("Tích: " + nhan(kq1, kq2));
                 break;
             case "/":
-                alert("Thương: " + kq1 / kq2);
+                if (chia(kq1, kq2) === null) {
+                    alert("Phep chia khong hop le");
+                } else {
+                    alert("Thuong la : " + chia(kq1, kq2))
+                }
                 break;
             default:
                 alert(o + "Không phải là toán tử");
                 break;
+        }
+
+
+
+        function cong(x, y) {
+            return x + y;
+        }
+
+        function tru(x, y) {
+            return x - y;
+        }
+
+        function nhan(x, y) {
+            return x * y;
+        }
+
+        function chia(x, y) {
+            if (y === 0) {
+                return null;
+            }
+            return x / y;
         }
     </script>
 </body>

@@ -39,17 +39,21 @@
 <script>
     function choi() {
         while (true) {
-            var so_bi_mat = Math.round(Math.random() * 100);
-            var soNhap = prompt("Bạn đoán sinh ra số mấy từ 0 đến 100 : ");
-            if (Number(soNhap) == so_bi_mat) {
-                alert("Bạn đoán đúng rồi : " + so_bi_mat);
-                break;
-            } else if (Number(soNhap) < so_bi_mat) {
-                alert("Số bí mật lớn hơn số của bạn");
-                break;
+            let so_bi_mat = Math.round(Math.random() * 100);
+            let soNhap = prompt("Bạn đoán sinh ra số mấy từ 0 đến 100 : ");
+            if (isNaN(soNhap) === false) {
+                if ((+soNhap) === so_bi_mat) {
+                    alert("Bạn đoán đúng rồi : " + so_bi_mat);
+                    break;
+                } else if ((+soNhap) < so_bi_mat) {
+                    alert("Số bí mật lớn hơn số của bạn");
+                    break;
+                } else {
+                    alert("số bí mật nhỏ hơn số của bạn");
+                    break;
+                }
             } else {
-                alert("số bí mật nhỏ hơn số của bạn");
-                break;
+                alert("Ban nhap khong phai la so");
             }
         }
     }

@@ -10,22 +10,15 @@
 
 <body>
     <script>
-        // let gtriDau = prompt("F0:");
-        // let f0 = Number(gtriDau);
-        // let giatriThuHai = prompt("F1:");
-        // let f1 = Number(giatriThuHai);
-        // for (let i = 0; i < 10; i++) {
-        //     let f = f0 + f1;
-        //     f0 = f1;
-        //     f1 = f;
-        //     document.write(f + "<br>");
-        // }
-
-        const fibonacci = (n) => {
-            if (n === 1 || n === 2) {
-                return 1
-            }
-            return fibonacci(n - 1) + fibonacci(n - 2)
+        let gtriDau = prompt("F0:");
+        let f0 = (+gtriDau);
+        let giatriThuHai = prompt("F1:");
+        let f1 = (+giatriThuHai);
+        for (let i = 0; i < 10; i++) {
+            let f = f0 + f1;
+            f0 = f1;
+            f1 = f;
+            document.write(f + "<br>");
         }
     </script>
 </body>
