@@ -1,0 +1,38 @@
+.container {
+    width: 960px;
+    margin: 0px auto;
+    margin-right: 19px;
+}
+
+.mau {
+    width: 463px;
+    padding: 20px 30px;
+    background: linear-gradient(45deg, #ff9800, transparent);
+}
+
+label {
+    border: 1px solid black;
+    padding: 6px 20px;
+    margin-right: 20px;
+}
+
+#khoi {
+    margin-bottom: 20px;
+}
+
+label.n1 {
+    padding: 6px 32px;
+}
+
+input[type="text"] {
+    padding: 6px 20px;
+}
+
+select {
+    padding: 6px 73px;
+}
+
+button {
+    background: linear-gradient(60deg, #cddc39, #ffb84f);
+    font-size: 20px;
+}

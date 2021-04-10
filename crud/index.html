@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-danger text-center mt-3">Todo List</h1>
+        <form action="">
+            <input type="hidden" name="" id="index">
+            <div class="form-group">
+                <label for="name">Họ tên : </label>
+                <input type="text" class="form-control" id="name " aria-describedby="emailHelp" placeholder="ho ten">
+
+            </div>
+            <div class="form-group">
+                <label for="msv">Mã sv</label>
+                <input type="text" class="form-control" id="msv" placeholder="Mã sv">
+            </div>
+            <div class="form-group">
+                <label for="point">Điểm</label>
+                <input type="number" class="form-control" id="point" placeholder="diem">
+            </div>
+            <button class="btn btn-primary w-100" id="add" onclick="saveAdd()">Thêm</button>
+            <button class="btn btn-primary w-100" id="updateSave" onclick="editSave()" style="display: none;">Update</button>
+        </form>
+        <h2 class="text-center mb-4 title mt-3">Danh sách</h2>
+        <div class="task">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Họ tên</th>
+                        <th scope="col">Mã số sinh viên</th>
+                        <th scope="col">Điểm</th>
+                        <th scope="col">Thao tác</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
