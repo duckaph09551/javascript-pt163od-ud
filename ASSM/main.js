@@ -20,7 +20,6 @@ function addDataUpdateFillAndRender(index, id, name, price, count) {
   <td>
   <button class="btn btn-success btn-update"  >Sửa</button>
   <button class="btn btn-danger btn-remove" id="removes">X</button>
-
   </td>
 </tr>
 `;
@@ -63,6 +62,16 @@ function addDataUpdateFillAndRender(index, id, name, price, count) {
                     document.getElementById("updateSave").style.display = "none";
                     document.getElementById("add").style.display = "block";
                     clearForm();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Bạn đã sửa dữ liệu thành công",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
                 });
         }
     });
@@ -86,8 +95,19 @@ function saveAdd() {
         tasks.push(item);
         localStorage.setItem("tasks", JSON.stringify(tasks));
         addTask(item);
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Bạn đã thêm dữ liệu thành công",
+            showConfirmButton: false,
+            timer: 1500,
+        });
     } else {
-        alert("Bạn phải điền đầy đủ các trường");
+       name == "" ?   document.getElementById('errorsName').innerText = "Mời bạn nhập trường name" : name;
+        price == "" ?   document.getElementById('errorsPrice').innerText = "Mời bạn nhập giá" : price;
+         count == "" ?   document.getElementById('errorsCount').innerText = "Mời bạn nhập trường số lượng" : count;
+
+
     }
 }
 
@@ -109,7 +129,7 @@ function editSave(indexRow) {
                 price: document.getElementById("price").value,
             };
             localStorage.setItem("tasks", JSON.stringify(taskItem));
-            location.reload();
+
             break;
         }
     }
@@ -148,15 +168,16 @@ function renderSortBy(x) {
     );
 }
 
-var e = document.getElementById("ddlViewBy");
-var ee = document.getElementById("inputGroupSelect01");
+//TODO:sort
+let e = document.getElementById("ddlViewBy");
+let ee = document.getElementById("inputGroupSelect01");
 
 function showFilter() {
-    var id = document.forms[0].ddlViewBy.value;
-    var idIncre = document.forms[0].inputGroupSelect01.value;
+    let id = document.forms[0].ddlViewBy.value;
+    let idIncre = document.forms[0].inputGroupSelect01.value;
 
     let result = getTasks();
-    for (var i = 0; i < result.length; i++) {
+    for (let i = 0; i < result.length; i++) {
         if (id == 3) {
             let x = result.sort((a, b) => {
                 return a.price - b.price;
@@ -179,20 +200,21 @@ function showFilter() {
                 renderSortBy(x);
             }
             renderSortBy(x);
-        } else {
-            let x = result.sort((a, b) => {
-                return a.name - b.name;
-            });
-            if (idIncre == 1) {
-                let x = result.sort((a, b) => {
-                    return b.name - a.name;
-                });
-                renderSortBy(x);
-            }
-            renderSortBy(x);
         }
     }
 }
 e.onchange = showFilter;
 ee.onchange = showFilter;
 showFilter();
+
+// Array.prototype.sortBy = function(p) {
+//   return this.slice(0).sort(function(a,b) {
+//     return (a[p] > b[p]) ? 1 : (a[p] < b[p]) ? -1 : 0;
+//   });
+// }
+
+// Array.prototype.sortBy2 = function(p) {
+//   return this.slice(0).sort(function(a,b) {
+//     return (a[p] > b[p]) ? -1 : (a[p] < b[p]) ? 1 : 0;
+//   });
+// }

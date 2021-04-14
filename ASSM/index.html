@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -16,19 +17,21 @@
         <!-- <h1 class="text-center mt-3">Quản lý sản phẩm </h1> -->
         <div class="border border-dark p-3">
             <div class="border border-dark p-3 mt-3">
-
-
                 <div class="form-group">
                     <label for="name">Tên sản phẩm : </label>
-                    <input type="text" class="form-control" id="name" placeholder="Ten sản phẩm">
+                    <input type="text" class="form-control" id="name" placeholder="Ten sản phẩm" >
+                     <p id="errorsName" class="text-danger"></p>
                 </div>
                 <div class="form-group">
                     <label for="msv">Số lượng</label>
                     <input type="number" class="form-control" id="count" placeholder="Số lượng">
+                     <p id="errorsCount" class="text-danger"></p>
                 </div>
                 <div class="form-group">
                     <label for="point">Đơn giá</label>
                     <input type="number" class="form-control" id="price" placeholder="Đơn giá">
+                     <p id="errorsPrice" class="text-danger"></p>
+
                 </div>
                 <div class="row">
                     <div class="form-group col-6">
@@ -39,6 +42,8 @@
                         <button class="btn btn-danger w-100" id="clear" onclick="clearForm()">Clear</button>
                     </div>
                 </div>
+
+
 
             </div>
             <h2 class="text-center mb-4 title mt-3">Danh sách</h2>
@@ -61,15 +66,14 @@
                             <form>
                                 <select class="custom-select mr-3" id="ddlViewBy">
                                 <option selected>Choose...</option>
-                                <option value="1" >Tên sản phẩm</option>
                                 <option value="2" >Số lượng</option>
                                 <option value="3" >Đơn giá</option>
                              </select>
 
                                 <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Choose...</option>
+                                  <option value="2" selected>Tăng</option>
                                     <option value="1">Giảm</option>
-                                    <option value="2">Tăng</option>
+
                               </select>
                             </form>
                         </div>
@@ -98,8 +102,8 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="main.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-</body>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 </html>
