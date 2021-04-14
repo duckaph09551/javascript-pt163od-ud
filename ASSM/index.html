@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>ASSM</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-3">
+        <!-- <h1 class="text-center mt-3">Quản lý sản phẩm </h1> -->
+        <div class="border border-dark p-3">
+            <div class="border border-dark p-3 mt-3">
+
+
+                <div class="form-group">
+                    <label for="name">Tên sản phẩm : </label>
+                    <input type="text" class="form-control" id="name" placeholder="Ten sản phẩm">
+                </div>
+                <div class="form-group">
+                    <label for="msv">Số lượng</label>
+                    <input type="number" class="form-control" id="count" placeholder="Số lượng">
+                </div>
+                <div class="form-group">
+                    <label for="point">Đơn giá</label>
+                    <input type="number" class="form-control" id="price" placeholder="Đơn giá">
+                </div>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <button class="btn btn-primary w-100" id="add" onclick="saveAdd()">Thêm</button>
+                        <button class="btn btn-primary w-100" id="updateSave" style="display: none;">Update</button>
+                    </div>
+                    <div class="form-group col-6">
+                        <button class="btn btn-danger w-100" id="clear" onclick="clearForm()">Clear</button>
+                    </div>
+                </div>
+
+            </div>
+            <h2 class="text-center mb-4 title mt-3">Danh sách</h2>
+            <!-- <button class="btn btn-danger mb-3 btn-remove-all">Xóa tất cả</button> -->
+            <div class="action">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Tìm kiếm</label>
+                            <div class="col-sm-8">
+                                <input id="Search" onkeyup="functionSearch()" type="text" class="form-control" placeholder="Nhập để tìm kiếm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Sắp xếp theo</label>
+                            </div>
+                            <form>
+                                <select class="custom-select mr-3" id="ddlViewBy">
+                                <option selected>Choose...</option>
+                                <option value="1" >Tên sản phẩm</option>
+                                <option value="2" >Số lượng</option>
+                                <option value="3" >Đơn giá</option>
+                             </select>
+
+                                <select class="custom-select" id="inputGroupSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Giảm</option>
+                                    <option value="2">Tăng</option>
+                              </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <table class="table" id="tableProduct">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Tên SP</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+
+
+</html>

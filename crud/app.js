@@ -2,20 +2,22 @@ const getTasks = () => JSON.parse(localStorage.getItem("tasks")) || [];
 let i = 0;
 const addTask = (obj) => {
     const taskItem = document.createElement("tr");
-    taskItem.innerHTML = `
-  <tr>
-      <th scope="row">${i++}</th>
-      <td>${obj.name}</td>
-      <td>${obj.msv}</td>
-      <td>${obj.point}</td>
-      <td>
-          <button class="btn btn-success btn-update" onclick=(edit(${
-            i - 1
-          }))>Sửa</button>
-          <button class="btn btn-danger btn-remove" id="removes">X</button>
-      </td>
-  </tr>
-  `;
+    if (obj.name && obj.msv && obj.point) {
+        taskItem.innerHTML = `
+        <tr>
+            <th scope="row">${i++}</th>
+            <td>${obj.name}</td>
+            <td>${obj.msv}</td>
+            <td>${obj.point}</td>
+            <td>
+                <button class="btn btn-success btn-update" onclick=(edit(${
+                  i - 1
+                }))>Sửa</button>
+                <button class="btn btn-danger btn-remove" id="removes">X</button>
+            </td>
+        </tr>
+        `;
+    }
 
     taskItem.addEventListener("click", (event) => {
         if (event.target.classList.contains("btn-remove")) {
@@ -28,60 +30,30 @@ const addTask = (obj) => {
                 localStorage.setItem("tasks", JSON.stringify(tasks));
             }
         }
-
-        // if (event.target.classList.contains("btn-update")) {
-        //     document.getElementById("updateSave").style.display = "block";
-        //     document.getElementById("add").style.display = "none";
-        //     const tasks = getTasks();
-        //     document.querySelector("button").innerText = "Update";
-        //     let newArr = tasks.filter((tasks) => tasks.name === obj.name);
-
-        //     document.getElementById("name ").setAttribute("value", newArr[0]["name"]);
-        //     document.getElementById("msv").setAttribute("value", newArr[0]["msv"]);
-        //     document
-        //         .getElementById("point")
-        //         .setAttribute("value", newArr[0]["point"]);
-
-        //     document
-        //         .querySelector("#updateSave")
-        //         .addEventListener("click", (event) => {});
-        //     // update();
-        // }
     });
 
-    document.querySelector("table").appendChild(taskItem);
+    document.querySelector("tbody").appendChild(taskItem);
 };
 
-// document.querySelector("form").addEventListener("submit", (event) => {
-//     event.preventDefault();
-//     const formValue = document.querySelectorAll("form input");
-//     const name = formValue[0].value;
-//     const msv = formValue[1].value;
-//     const point = formValue[2].value;
-//     const item = {
-//         id: new Date().toISOString,
-//         name,
-//         msv,
-//         point,
-//     };
-
-//     const tasks = getTasks();
-//     tasks.push(item);
-//     localStorage.setItem("tasks", JSON.stringify(tasks));
-//     addTask(item);
-// });
 function saveAdd() {
+    let name = document.getElementById("name ").value;
+    let msv = document.getElementById("msv").value;
+    let point = document.getElementById("point").value;
     const item = {
         id: new Date().toISOString,
-        name: document.getElementById("name ").value,
-        msv: document.getElementById("msv").value,
-        point: document.getElementById("point").value,
+        name,
+        msv,
+        point,
     };
 
-    const tasks = getTasks();
-    tasks.push(item);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    addTask(item);
+    if (name && msv && point) {
+        const tasks = getTasks();
+        tasks.push(item);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        addTask(item);
+    } else {
+        alert("Bạn phải điền đầy đủ các trường");
+    }
 }
 
 function edit(index) {
@@ -104,11 +76,20 @@ function editSave() {
     };
 
     localStorage.setItem("tasks", JSON.stringify(taskItem));
-
     document.getElementById("updateSave").style.display = "none";
     document.getElementById("add").style.display = "block";
 }
 
+//remove tất cả
+document.querySelector(".btn-remove-all").addEventListener("click", (event) => {
+    document.querySelector("tbody").innerHTML = "";
+    let conf = confirm("Bạn có chắc muốn xóa tất cả hay không");
+    if (conf) {
+        localStorage.removeItem("tasks");
+    }
+});
+
+//
 getTasks().forEach((element) => {
     addTask(element);
 });
