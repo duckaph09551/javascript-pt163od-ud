@@ -2,7 +2,7 @@ const getTasks = () => JSON.parse(localStorage.getItem("tasks")) || [];
 let i = 1;
 //thêm sản phẩm
 const addTask = (obj) => {
-    if (obj.name && obj.price && obj.count) {
+    if (obj.name != "" && obj.price != "" && obj.count != "") {
         addDataUpdateFillAndRender(i, obj.id, obj.name, obj.price, obj.count);
         i++;
     }
@@ -90,7 +90,7 @@ function saveAdd() {
         price,
     };
 
-    if (name && price && count) {
+    if (name && price && count > 0 && count <= 10) {
         const tasks = getTasks();
         tasks.push(item);
         localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -103,11 +103,23 @@ function saveAdd() {
             timer: 1500,
         });
     } else {
-       name == "" ?   document.getElementById('errorsName').innerText = "Mời bạn nhập trường name" : name;
-        price == "" ?   document.getElementById('errorsPrice').innerText = "Mời bạn nhập giá" : price;
-         count == "" ?   document.getElementById('errorsCount').innerText = "Mời bạn nhập trường số lượng" : count;
-
-
+        name == "" ?
+            (document.getElementById("errorsName").innerText =
+                "Mời bạn nhập trường name") :
+            name;
+        price == "" ?
+            (document.getElementById("errorsPrice").innerText = "Mời bạn nhập giá") :
+            price;
+        if (count == "") {
+            document.getElementById("errorsCount").innerText =
+                "Mời bạn nhập trường số lượng";
+        } else if (count > 10) {
+            document.getElementById("errorsCount").innerText =
+                "Mời bạn nhập trường số lượng bé hơn 10";
+        } else if (count <= 0) {
+            document.getElementById("errorsCount").innerText =
+                "Mời bạn nhập trường số lượng  hơn hơn 0";
+        }
     }
 }
 
@@ -115,6 +127,15 @@ function clearForm() {
     document.getElementById("name").value = "";
     document.getElementById("price").value = "";
     document.getElementById("count").value = "";
+
+    document.getElementById("errorsName").innerText = "";
+    document.getElementById("errorsPrice").innerText = "";
+    document.getElementById("errorsCount").innerText = "";
+
+    document.getElementById("updateSave").style.display = "none";
+    document.getElementById("add").style.display = "block";
+
+    location.reload();
 }
 
 function editSave(indexRow) {
@@ -207,14 +228,23 @@ e.onchange = showFilter;
 ee.onchange = showFilter;
 showFilter();
 
-// Array.prototype.sortBy = function(p) {
-//   return this.slice(0).sort(function(a,b) {
-//     return (a[p] > b[p]) ? 1 : (a[p] < b[p]) ? -1 : 0;
-//   });
-// }
+//xóa tất cả
 
-// Array.prototype.sortBy2 = function(p) {
-//   return this.slice(0).sort(function(a,b) {
-//     return (a[p] > b[p]) ? -1 : (a[p] < b[p]) ? 1 : 0;
-//   });
-// }
+//remove tất cả
+document.querySelector(".btn-remove-all").addEventListener("click", (event) => {
+    document.querySelector("tbody").innerHTML = "";
+    Swal.fire({
+        title: "Xoá",
+        text: "Bạn có chắc muốn xóa không",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem("tasks");
+            Swal.fire("Xóa!", "Bạn đã xóa thành công", "success");
+        }
+    });
+});
